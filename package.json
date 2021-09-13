@@ -1,6 +1,6 @@
 {
-  "name": "@paddyfay/nx-aws-cache",
-  "version": "0.0.1",
+  "name": "@paddyfay/nx-aws",
+  "version": "0.0.2",
   "license": "MIT",
   "keywords": [
     "AWS",
