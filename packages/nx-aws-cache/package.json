@@ -1,6 +1,6 @@
 {
-  "name": "@nx-aws-plugin/nx-aws-cache",
-  "version": "0.0.4",
+  "name": "@paddyfay/nx-aws",
+  "version": "0.0.1",
   "description": "AWS S3 Cache plugin for Nx",
   "keywords": [
     "AWS",
@@ -14,12 +14,6 @@
     "Monorepo"
   ],
   "license": "MIT",
-  "author": "Bojan Bratuz",
   "main": "src/index.js",
-  "schematics": "./collection.json",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bojanbass/nx-aws"
-  },
-  "homepage": "https://github.com/bojanbass/nx-aws"
+  "schematics": "./collection.json"
 }
