@@ -38,6 +38,10 @@ export class AwsCache implements RemoteCache {
     const missingOptions: Array<string> = [],
       externalOptions = new S3().config.credentials;
 
+    if (options.awsIAM) {
+      return;
+    }
+
     if (!options.awsBucket) {
       missingOptions.push('NX_AWS_BUCKET | awsBucket');
     }

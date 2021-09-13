@@ -21,7 +21,7 @@ export const tasksRunner = (
       awsAccessKeyId: options.awsAccessKeyId ?? process.env.NX_AWS_ACCESS_KEY_ID,
       awsBucket: options.awsBucket ?? process.env.NX_AWS_BUCKET,
       awsRegion: options.awsRegion ?? process.env.NX_AWS_REGION,
-      awsSecretAccessKey: options.awsSecretAccessKey ?? process.env.NX_AWS_SECRET_ACCESS_KEY,
+      awsSecretAccessKey: options.awsSecretAccessKey ?? process.env.NX_AWS_SECRET_ACCESS_KEY
     },
     logger = new Logger();
 

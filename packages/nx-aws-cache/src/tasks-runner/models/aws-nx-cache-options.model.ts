@@ -3,4 +3,5 @@ export interface AwsNxCacheOptions {
   awsBucket?: string;
   awsAccessKeyId?: string;
   awsSecretAccessKey?: string;
+  awsIAM?: boolean;
 }
