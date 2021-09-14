@@ -41,7 +41,7 @@ There are two ways to set-up AWS options:
       "awsSecretAccessKey": "[secret]",
       "awsRegion": "eu-central-1",
       "awsBucket": "bucket-name/cache-folder",
-      "awsUseIamRole": "true"
+      "awsUseIamRole": true
     }
   }
 }
