@@ -12,6 +12,10 @@ import { AwsCache } from './aws-cache';
 import { Logger } from './logger';
 import { MessageReporter } from './message-reporter';
 
+// eslint-disable-next-line prefer-named-capture-group
+const regex = /(true|1)/iu;
+
+// eslint-disable-next-line one-var
 export const tasksRunner = (
   tasks: Parameters<typeof defaultTaskRunner>[0],
   options: Parameters<typeof defaultTaskRunner>[1] & AwsNxCacheOptions,
@@ -21,7 +25,8 @@ export const tasksRunner = (
       awsAccessKeyId: options.awsAccessKeyId ?? process.env.NX_AWS_ACCESS_KEY_ID,
       awsBucket: options.awsBucket ?? process.env.NX_AWS_BUCKET,
       awsRegion: options.awsRegion ?? process.env.NX_AWS_REGION,
-      awsSecretAccessKey: options.awsSecretAccessKey ?? process.env.NX_AWS_SECRET_ACCESS_KEY
+      awsSecretAccessKey: options.awsSecretAccessKey ?? process.env.NX_AWS_SECRET_ACCESS_KEY,
+      awsUseIamRole: options.awsUseIamRole ?? regex.test(process.env.NX_AWS_USE_IAM_ROLE || '')
     },
     logger = new Logger();
 

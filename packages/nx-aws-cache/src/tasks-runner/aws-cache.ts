@@ -38,7 +38,7 @@ export class AwsCache implements RemoteCache {
     const missingOptions: Array<string> = [],
       externalOptions = new S3().config.credentials;
 
-    if (options.awsIAM) {
+    if (options.awsUseIamRole === true) {
       return;
     }
 

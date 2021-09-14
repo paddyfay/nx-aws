@@ -34,13 +34,14 @@ There are two ways to set-up AWS options:
 {
   "tasksRunnerOptions": {
   "default": {
-    "runner": "@nx-aws-plugin/nx-aws-cache",
+    "runner": "@paddyfay/nx-aws",
     "options": {
       ...
       "awsAccessKeyId": "[secret]",
       "awsSecretAccessKey": "[secret]",
       "awsRegion": "eu-central-1",
-      "awsBucket": "bucket-name/cache-folder"
+      "awsBucket": "bucket-name/cache-folder",
+      "awsUseIamRole": "true"
     }
   }
 }
@@ -53,6 +54,7 @@ NX_AWS_ACCESS_KEY_ID=[secret]
 NX_AWS_SECRET_ACCESS_KEY=[secret]
 NX_AWS_REGION=eu-central-1
 NX_AWS_BUCKET=bucket-name/cache-folder
+NX_AWS_USE_IAM_ROLE=true
 ```
 
 Additionally, AWS authentication can be set-up using default environment variables or using shared credentials, based on [AWS documentation](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html)
@@ -92,4 +94,4 @@ Run `yarn nx affected:e2e` to execute the end-to-end tests affected by a change.
 
 ## Credits
 
-This repository is based on a similar NX plugin using Azure Storage [@nx-azure/storage-cache](https://github.com/microsoft/nx-azure) which was inspired by Nx Cloud Plugin by [Nrwl](https://github.com/nrwl/nx). 
+This repository is forked from [@nx-aws-plugin/nx-aws-cache](https://github.com/bojanbass/nx-aws).
