@@ -34,7 +34,7 @@ There are two ways to set-up AWS options:
 {
   "tasksRunnerOptions": {
   "default": {
-    "runner": "@paddyfay/nx-aws",
+    "runner": "@nx-plug/aws-cache",
     "options": {
       ...
       "awsAccessKeyId": "[secret]",
