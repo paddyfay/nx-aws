@@ -1,6 +1,6 @@
 {
-  "name": "@nx-plug/aws-cache",
-  "version": "0.0.1",
+  "name": "@paddyfay/aws-cache",
+  "version": "0.0.2",
   "license": "MIT",
   "keywords": [
     "AWS",

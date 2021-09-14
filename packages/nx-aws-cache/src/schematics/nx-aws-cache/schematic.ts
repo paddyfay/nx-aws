@@ -67,7 +67,7 @@ function updateNxJson(ops: NxAwsCacheSchematicSchema) {
   updateJsonFile('nx.json', (json) => {
     json.tasksRunnerOptions = {
       default: {
-        runner: '@nx-aws-plugin/nx-aws-cache',
+        runner: '@paddyfay/aws-cache',
         options: {
           ...(ops.awsAccessKeyId ? { awsAccessKeyId: ops.awsAccessKeyId } : {}),
           ...(ops.awsSecretAccessKey ? { awsSecretAccessKey: ops.awsSecretAccessKey } : {}),

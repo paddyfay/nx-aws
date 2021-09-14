@@ -27,11 +27,15 @@ export class AwsCache implements RemoteCache {
       awsConfig.update({ region: options.awsRegion });
     }
 
-    this.s3 = new S3({
-      apiVersion: 'latest',
-      ...(options.awsSecretAccessKey ? { secretAccessKey: options.awsSecretAccessKey } : {}),
-      ...(options.awsAccessKeyId ? { accessKeyId: options.awsAccessKeyId } : {}),
-    });
+    if (options.awsUseIamRole === true) {
+      this.s3 = new S3({ apiVersion: 'latest' });
+    } else {
+      this.s3 = new S3({
+        apiVersion: 'latest',
+        ...(options.awsSecretAccessKey ? { secretAccessKey: options.awsSecretAccessKey } : {}),
+        ...(options.awsAccessKeyId ? { accessKeyId: options.awsAccessKeyId } : {}),
+      });
+    }
   }
 
   public static checkConfig(options: AwsNxCacheOptions): void {
