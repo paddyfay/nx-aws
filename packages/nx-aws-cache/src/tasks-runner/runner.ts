@@ -22,11 +22,11 @@ export const tasksRunner = (
   context: Parameters<typeof defaultTaskRunner>[2],
 ): ReturnType<typeof defaultTaskRunner> => {
   const awsOptions: AwsNxCacheOptions = {
-      awsAccessKeyId: options.awsAccessKeyId ?? process.env.NX_AWS_ACCESS_KEY_ID,
-      awsBucket: options.awsBucket ?? process.env.NX_AWS_BUCKET,
-      awsRegion: options.awsRegion ?? process.env.NX_AWS_REGION,
-      awsSecretAccessKey: options.awsSecretAccessKey ?? process.env.NX_AWS_SECRET_ACCESS_KEY,
-      awsUseIamRole: options.awsUseIamRole ?? regex.test(process.env.NX_AWS_USE_IAM_ROLE || '')
+      awsAccessKeyId: process.env.NX_AWS_ACCESS_KEY_ID ?? options.awsAccessKeyId,
+      awsBucket: process.env.NX_AWS_BUCKET ?? options.awsBucket,
+      awsRegion: process.env.NX_AWS_REGION ?? options.awsRegion,
+      awsSecretAccessKey: process.env.NX_AWS_SECRET_ACCESS_KEY ?? options.awsSecretAccessKey,
+      awsUseIamRole: process.env.NX_AWS_USE_IAM_ROLE ? regex.test(process.env.NX_AWS_USE_IAM_ROLE || '') : options.awsUseIamRole 
     },
     logger = new Logger();
 
