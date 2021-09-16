@@ -1,3 +1,4 @@
+/* eslint-disable one-var */
 /* eslint-disable no-magic-numbers */
 
 import { config as dotEnvConfig } from 'dotenv';
@@ -16,6 +17,7 @@ import { MessageReporter } from './message-reporter';
 const regex = /(true|1)/iu;
 
 // eslint-disable-next-line one-var
+// eslint-disable-next-line max-lines-per-function
 export const tasksRunner = (
   tasks: Parameters<typeof defaultTaskRunner>[0],
   options: Parameters<typeof defaultTaskRunner>[1] & AwsNxCacheOptions,
@@ -29,6 +31,8 @@ export const tasksRunner = (
       awsUseIamRole: process.env.NX_AWS_USE_IAM_ROLE ? regex.test(process.env.NX_AWS_USE_IAM_ROLE || '') : options.awsUseIamRole 
     },
     logger = new Logger();
+    
+  logger.debug(`OPTIONS: ${JSON.stringify(awsOptions)}`);
 
   try {
     AwsCache.checkConfig(awsOptions);
