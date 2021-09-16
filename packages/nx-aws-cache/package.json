@@ -1,6 +1,6 @@
 {
   "name": "@nx-cache/aws-s3",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AWS S3 Cache plugin for Nx",
   "keywords": [
     "AWS",
@@ -15,5 +15,10 @@
   ],
   "license": "MIT",
   "main": "src/index.js",
-  "schematics": "./collection.json"
+  "schematics": "./collection.json",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paddyfay/nx-aws"
+  },
+  "homepage": "https://github.com/paddyfay/nx-aws"
 }
