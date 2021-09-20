@@ -1,6 +1,6 @@
 {
   "name": "@nx-cache/aws-s3",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "AWS S3 Cache plugin for Nx",
   "keywords": [
     "AWS",

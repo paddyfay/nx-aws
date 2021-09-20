@@ -7,14 +7,15 @@ import { promisify } from 'util';
 
 import { config as awsConfig, S3 } from 'aws-sdk';
 import { PutObjectRequest } from 'aws-sdk/clients/s3';
-import { RemoteCache } from '@nrwl/workspace/src/tasks-runner/default-tasks-runner';
+import { LifeCycle, RemoteCache } from '@nrwl/workspace/src/tasks-runner/default-tasks-runner';
 import { create, extract } from 'tar';
 
 import { AwsNxCacheOptions } from './models/aws-nx-cache-options.model';
 import { Logger } from './logger';
 import { MessageReporter } from './message-reporter';
+import { Task } from '@nrwl/workspace/src/tasks-runner/tasks-runner';
 
-export class AwsCache implements RemoteCache {
+export class AwsCache implements RemoteCache, LifeCycle {
   private readonly bucket: string;
   private readonly s3: S3;
   private readonly logger = new Logger();
@@ -36,6 +37,14 @@ export class AwsCache implements RemoteCache {
         ...(options.awsAccessKeyId ? { accessKeyId: options.awsAccessKeyId } : {}),
       });
     }
+  }
+
+  public startTask(task: Task): void {
+    this.logger.debug(`Storage Cache: Start Task ${task}`);
+  }
+
+  public endTask(task: Task, code: number): void {
+    this.logger.debug(`Storage Cache: End Task ${task} ${code}`);
   }
 
   public static checkConfig(options: AwsNxCacheOptions): void {
